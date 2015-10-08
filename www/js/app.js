@@ -1,19 +1,10 @@
-//console.error = function (err) {
-//  alert(JSON.stringify(err));
-//};
-
 angular.module('inStep', ['ionic', 'inStepControllers', 'pusher-angular'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
     window.client = new Pusher('e3d79ed69e5057530b35');
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/listen');
 
     $stateProvider
-      .state('bluetooth', {
-        url: '/',
-        controller: 'bluetoothCtrl',
-        templateUrl: 'templates/bluetooth.html'
-      })
       .state('listen', {
         url: '/listen',
         controller: 'listenCtrl',
