@@ -7,9 +7,11 @@ angular.module('inStepControllers',
       var pusher = $pusher(window.client);
       var channel = pusher.subscribe('test_channel');
       channel.bind('my_event', function (data) {
-        $scope.pulse++;
-        if (window.cordova)
-          navigator.notification.vibrate(data.bitLength);
+        if (!stop) {
+          $scope.pulse++;
+          if (window.cordova)
+            navigator.notification.vibrate(data.bitLength);
+        }
       });
     });
   })
