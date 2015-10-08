@@ -1,7 +1,7 @@
 angular.module('inStep', ['ionic', 'inStepControllers', 'pusher-angular'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
-    window.client = new Pusher('e3d79ed69e5057530b35');
+    window.client = new Pusher('fed707b40bae83dac0db');
     $urlRouterProvider.otherwise('/listen');
 
     $stateProvider

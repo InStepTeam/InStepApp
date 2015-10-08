@@ -5,12 +5,12 @@ angular.module('inStepControllers',
     $scope.pulse = 0;
     ionic.Platform.ready(function () {
       var pusher = $pusher(window.client);
-      var channel = pusher.subscribe('test_channel');
-      channel.bind('my_event', function (data) {
+      var channel = pusher.subscribe('events');
+      channel.bind('event1', function (data) {
         if (!stop) {
           $scope.pulse++;
           if (window.cordova)
-            navigator.notification.vibrate(data.bitLength);
+            navigator.notification.vibrate(data.beattLength);
         }
       });
     });
