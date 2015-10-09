@@ -1,11 +1,11 @@
-<div class="bar bar-header bar-calm">
-  <h1 class="title">InStep</h1>
+<div class="bar bar-header bar-royal">
+  <h1 class="title">{{currentEvent.name}}</h1>
 </div>
-<div class="list card has-header">
+<div class="list card has-header has-footer">
   <a class="item item-image">
    <img src="img/instep-icon.png" ng-pulser/>
   </a>
   <a class="item button-bar">
-    <button class="button" ng-click="stop = !stop"><i class="icon" ng-class="stop ? 'ion-pause' : 'ion-play'"></i></button>
+    <button class="button" ng-click="play = !play"><i class="icon" ng-class="play ? 'ion-pause' : 'ion-play'"></i></button>
   </a>
 </div>
