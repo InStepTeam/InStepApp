@@ -2,3 +2,9 @@
   animation: pulse 50ms ease-out;
   -webkit-animation: pulse 50ms ease-out;
 }
+
+.pulser-img {
+  width: 144px !important;
+  height: 144px !important;
+  margin: 5px;
+}
