@@ -40,25 +40,27 @@ angular.module('inStepControllers',
     }
   })
 
-  .controller('listenCtrl', function ($scope, $pusher) {
+  .controller('listenCtrl', function ($scope, $pusher, $rootScope) {
     $scope.pulse = 0;
     ionic.Platform.ready(function () {
-      var pusher = $pusher(window.client);
-      var channel = pusher.subscribe('events');
-      channel.bind('event2', function (data) {
-        console.log(data);
-        if ($scope.play) {
-          $scope.pulse++;
-          if (window.cordova)
-            navigator.notification.vibrate(data.beatLength);
-        }
-      });
+      if ($rootScope.currentEvent) {
+        var pusher = $pusher(window.client);
+        var channel = pusher.subscribe('events');
+        channel.bind('event' + $rootScope.currentEvent.id, function (data) {
+          console.log(data);
+          if ($scope.play) {
+            $scope.pulse++;
+            if (window.cordova)
+              navigator.notification.vibrate(data.beatLength);
+          }
+        });
+      }
     });
   })
 
   .controller('storeCtrl', function ($scope) {
     $scope.paypalOptions = {
-      onPaymentMethodReceived: function(payload) {
+      onPaymentMethodReceived: function (payload) {
         console.log('Yay, payload with nonce:', payload);
       }
     };
